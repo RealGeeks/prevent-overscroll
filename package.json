@@ -1,0 +1,29 @@
+{
+  "name": "prevent-overscroll",
+  "version": "0.1.0",
+  "description": "JavaScript library to prevent scrollable elements from scrolling the entire body on iOS.",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "jshint index.js tests.js && jscs index.js tests.js && tape tests.js",
+    "watch": "testem -g"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RealGeeks/prevent-overscroll.git"
+  },
+  "author": "Sorin Iclanzan <sorin@iclanzan.com> (http://iclanzan.com/)",
+  "bugs": {
+    "url": "https://github.com/RealGeeks/prevent-overscroll/issues"
+  },
+  "homepage": "https://github.com/RealGeeks/prevent-overscroll",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^5.10.0",
+    "jscs": "^1.6.1",
+    "jshint": "^2.5.5",
+    "sinon": "^1.12.2",
+    "tape": "^2.14.0"
+  }
+}
