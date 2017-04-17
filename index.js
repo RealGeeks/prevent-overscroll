@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (element) {
-  function onTouchstart() {
+  function onTouchmove() {
     var scrollTop = element.scrollTop;
 
     // If the view is scrolled all the way to the top or bottom, scroll down
@@ -13,9 +13,9 @@ module.exports = function (element) {
     }
   }
 
-  element.addEventListener('touchstart', onTouchstart);
+  element.addEventListener('touchmove', onTouchmove);
 
   return function () {
-    element.removeEventListener('touchstart', onTouchstart);
+    element.removeEventListener('touchmove', onTouchmove);
   };
 };
