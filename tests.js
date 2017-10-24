@@ -13,16 +13,21 @@ var element = {
 };
 
 test('Prevent Overscroll', function (assert) {
-  assert.plan(5);
+  assert.plan(6);
 
   var remove = preventOverscroll(element);
   var listener = element.addEventListener.getCall(0).args[1];
 
   assert.ok(
-    element.addEventListener.calledWithExactly('touchstart', listener),
-    'adds touchstart event listener'
+    element.addEventListener.calledWithExactly('scroll', listener),
+    'adds scroll event listener'
   );
 
+  assert.equals(
+    element.scrollTop, 1, 'scrolls down 1px on init'
+  );
+
+  element.scrollTop = 0;
   listener();
 
   assert.equals(element.scrollTop, 1, 'scrolls down 1px');
@@ -39,7 +44,7 @@ test('Prevent Overscroll', function (assert) {
   remove();
 
   assert.ok(
-    element.removeEventListener.calledWithExactly('touchstart', listener),
-    'removes touchstart event listener'
+    element.removeEventListener.calledWithExactly('scroll', listener),
+    'removes scroll event listener'
   );
 });
